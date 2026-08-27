@@ -2,7 +2,7 @@
 
 A complete MERN e-commerce site: authentication, role-based access, product catalog with
 category-relevant images, cart, Razorpay checkout, order tracking with email notifications,
-and password reset — built from scratch with a custom design system.
+and password reset
 
 ## Project structure
 
@@ -15,25 +15,11 @@ shopnest/
 ## 1. Local setup
 
 ### Backend
-```bash
-cd backend
-npm install
-```
-Edit `backend/config/config.env` and fill in real values (see "Services you need" below).
 
-```bash
-npm run seed   # populates ~480 demo products across 6 categories
-npm run dev    # starts the API on http://localhost:8000
-```
 
 ### Frontend
-```bash
-cd frontend
-npm install
-npm run dev    # starts on http://localhost:5173, proxies /api to the backend
-```
 
-Open **http://localhost:5173**.
+**http://localhost:5173**.
 
 ## 2. Services you need (all free tiers)
 
@@ -55,7 +41,6 @@ To promote any other account to admin, go to Admin → Users after logging in as
 ## 4. Deploying online
 
 ### Backend → Render
-1. Push this project to a GitHub repo
 2. On [render.com](https://render.com), create a **New Web Service**, connect your repo
 3. Root directory: `backend`
 4. Build command: `npm install`
