@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-body antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+::selection {
+  @apply bg-brand/20;
+}
+
+:focus-visible {
+  outline: 2px solid #FF6B4A;
+  outline-offset: 2px;
+}
+
+@layer components {
+  /* Signature element: discount badges shaped like a real die-cut price tag,
+     complete with a punch hole — ties the visual language back to retail/shopping. */
+  .price-tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #FF6B4A;
+    color: white;
+    font-weight: 700;
+    font-size: 0.72rem;
+    line-height: 1;
+    padding: 0.4rem 0.6rem 0.4rem 1rem;
+    clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 50%);
+  }
+  .price-tag::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3 font-semibold text-white shadow-card transition-all hover:bg-brand-dark hover:shadow-card-hover active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink px-6 py-3 font-semibold text-ink transition-all hover:bg-ink hover:text-white active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-semibold text-ink/70 transition-all hover:bg-ink/5 hover:text-ink;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-slate-soft focus:border-brand focus:outline-none focus:ring-4 focus:ring-brand/10 transition;
+  }
+  .card {
+    @apply rounded-xl2 border border-ink/5 bg-white shadow-card transition-shadow hover:shadow-card-hover;
+  }
+}
+
+/* Horizontal scroll carousels */
+.scroll-row {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.scroll-row::-webkit-scrollbar {
+  display: none;
+}
+.scroll-row > * {
+  scroll-snap-align: start;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
